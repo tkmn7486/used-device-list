@@ -1,9 +1,13 @@
 <template>
-  <section class="section">
+  <section>
     <p class="is-size-2">
       中古端末一覧
     </p>
     <b-tabs>
+      <b-tab-item label="選択した機種の詳細">
+        <pre>{{ selected }}</pre>
+      </b-tab-item>
+
       <b-tab-item label="端末一覧">
         <b-table
           :data="contents"
@@ -11,10 +15,6 @@
           :selected.sync="selected"
           focusable>
         </b-table>
-      </b-tab-item>
-
-      <b-tab-item label="選択した機種の詳細">
-        <pre>{{ selected.model_name }}</pre>
       </b-tab-item>
     </b-tabs>
   </section>
