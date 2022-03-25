@@ -5,7 +5,7 @@
     </p>
     <b-tabs>
       <b-tab-item label="選択した機種の詳細">
-        <p>{{ selected.model_name }}</p>
+        <p>{{ selected }}</p>
       </b-tab-item>
 
       <b-tab-item label="端末一覧">
@@ -36,18 +36,10 @@ export default {
     return data
   },
   data () {
-    const contents = axios.get(
-      // your-service-id部分は自分のサービスidに置き換えてください
-      'https://used-device-list.microcms.io/api/v1/used-list-k?limit=100',
-      {
-        // your-api-key部分は自分のapi-keyに置き換えてください
-        headers: { 'X-MICROCMS-API-KEY': 'a3ab90328c87471dab133dfd64f4098e631b' }
-      }
-    )
+    const selected = ''
 
     return {
-      contents,
-      selected: contents[1],
+      selected: selected[0],
       columns: [
         {
           field: 'cont_id',
