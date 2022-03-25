@@ -1,52 +1,49 @@
 <template>
   <section class="section">
-    <div class="columns is-mobile">
-      <card
-        title="Free"
-        icon="github"
-      >
-        Open source on <a href="https://github.com/buefy/buefy">
-          GitHub
-        </a>
-      </card>
-
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">
-          Vue.js
-        </a> and <a href="http://bulma.io/">
-          Bulma
-        </a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
-    </div>
+    <p class="is-size-2">
+      中古端末一覧
+    </p>
+    <b-table
+      :data="contents"
+      :columns="columns">
+    </b-table>
   </section>
 </template>
 
 <script>
-import Card from '~/components/Card'
 
 export default {
   name: 'IndexPage',
-  components: {
-    Card
+  data () {
+    return {
+      columns: [
+        {
+          field: 'id',
+          label: 'ID',
+          width: '100',
+          numeric: true,
+          searchable: true
+        },
+        {
+          field: 'model_name',
+          label: '機種名',
+          searchable: true
+        },
+        {
+          field: 'career',
+          label: 'キャリア',
+          searchable: true
+        },
+        {
+          field: 'os',
+          label: 'OS',
+          searchable: true
+        }
+      ]
+    }
   }
 }
 </script>
+
+<style>
+</style>
