@@ -11,7 +11,7 @@
           href="/"
         >
           <img
-            src="~assets/buefy.png"
+            src="../static/icon_pwa.png"
             alt="Buefy"
             height="28"
           >
