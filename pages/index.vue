@@ -5,7 +5,7 @@
     </p>
     <b-tabs>
       <b-tab-item label="選択した機種の詳細">
-        <pre>{{ selected }}</pre>
+        <p>{{ selected.model_name }}</p>
       </b-tab-item>
 
       <b-tab-item label="端末一覧">
