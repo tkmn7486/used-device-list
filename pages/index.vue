@@ -5,7 +5,7 @@
     </p>
     <b-tabs>
       <b-tab-item label="選択した機種の詳細">
-        <p>{{ selected }}</p>
+        <p>{{ selected ? selected.model_name : null }}</p>
       </b-tab-item>
 
       <b-tab-item label="端末一覧">
@@ -13,8 +13,8 @@
           :data="contents"
           :columns="columns"
           :selected.sync="selected"
-          focusable>
-        </b-table>
+          focusable
+        />
       </b-tab-item>
     </b-tabs>
   </section>
