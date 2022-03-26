@@ -13,8 +13,8 @@
           :data="contents"
           :columns="columns"
           :selected.sync="selected"
-          focusable>
-        </b-table>
+          focusable
+        />
       </b-tab-item>
     </b-tabs>
   </section>
