@@ -1,8 +1,5 @@
 <template>
   <section>
-    <p class="is-size-2">
-      中古端末一覧
-    </p>
     <b-tabs>
       <b-tab-item label="選択した機種の詳細">
         <div class="selected-tab">
