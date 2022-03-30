@@ -27,16 +27,31 @@
                 <div class="specs">
                   <p class="spec">
                     カラー：
+                    {{ selected ? selected.device_color : null }}
                   </p>
                   <p class="spec">
                     容量：
+                    {{ selected ? selected.storage : null }} GB
                   </p>
                   <p class="spec">
                     メモリ：
+                    {{ selected ? selected.memory : null }}GB
                   </p>
                   <p class="spec">
                     OS最新：
                     {{ selected ? selected.max_version : null }}
+                  </p>
+                  <p class="spec">
+                    SIMサイズ：
+                    {{ selected ? selected.simcard[0] : null }}
+                  </p>
+                  <p class="spec">
+                    IMEI：
+                    {{ selected ? selected.imei : null }}
+                  </p>
+                  <p class="spec">
+                    付属品：
+                    {{ selected ? selected.accessory[0] : null }}
                   </p>
                 </div>
               </div>
@@ -44,6 +59,7 @@
                 <p class="title">
                   利用可能なアプリ
                 </p>
+                <img :src=" selected ? selected.apps[0].img.url : null " class="app-icon">
               </div>
             </div>
             <div class="tile is-parent">
@@ -197,6 +213,10 @@ export default {
 
 .title{
   font-size:20px;
+}
+
+.app-icon{
+  width:10%;
 }
 
 </style>
