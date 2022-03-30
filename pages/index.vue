@@ -69,12 +69,21 @@
                 <div class="img-area">
                   <div class="front">
                     <img :src="selected ? selected.front_img.url : null" alt="front_img" class="device-img">
-                    <p>前面</p>
+                    <p class="is-size-5 has-text-weight-semibold">前面</p>
                   </div>
                   <div class="back">
                     <img :src="selected ? selected.back_img.url : null" alt="back_img" class="device-img">
-                    <p>背面</p>
+                    <p class="is-size-5 has-text-weight-semibold">背面</p>
                   </div>
+                  <!-- <b-carousel>
+                    <b-carousel-item v-for="(carousel, i) in selected ? selected.front_img : null" :key="i">
+                      <section>
+                        <div class="hero-body has-text-centered">
+                          <img :src="selected ? selected.front_img.url : null" alt="front_img" class="device-img">
+                        </div>
+                      </section>
+                    </b-carousel-item>
+                  </b-carousel> -->
                 </div>
               </div>
             </div>
@@ -189,7 +198,7 @@ export default {
 }
 
 .specs{
-  width:40%;
+  width:70%;
   margin:0 auto;
 }
 
