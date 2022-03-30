@@ -59,7 +59,9 @@
                 <p class="title">
                   利用可能なアプリ
                 </p>
-                <img :src=" selected ? selected.apps[0].img.url : null " class="app-icon">
+                <div v-for="app_icon in selected ? selected.apps : null" :key="app_icon.id" class="tile is-child box">
+                  <img :src=" app_icon.img.url " class="app-icon">
+                </div>
               </div>
             </div>
             <div class="tile is-parent">
@@ -216,7 +218,9 @@ export default {
 }
 
 .app-icon{
-  width:10%;
+  width:20%;
+  margin:0 2px;
+  display:inline;
 }
 
 </style>
