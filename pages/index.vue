@@ -66,15 +66,22 @@
                     IMEI：
                     {{ selected ? selected.imei : null }}
                   </p>
+                  <div class="spec">
+                    <label class="label">付属品：</label>
+                    <p v-for="acce in selected ? selected.accessory : null" :key="acce.id" class="in-spec">
+                      ・{{ acce }}
+                    </p>
+                  </div>
                   <p class="spec">
-                    付属品：
-                    {{ selected ? selected.accessory[0] : null }}
+                    発売年：
+                    {{ selected ? selected.sold_year : null }}
                   </p>
-                  <p class="spec">
-                    発売日：
-                    {{ selected ? selected.sold_date : null }}
-                  </p>
-                  <label class="spec">特記事項：</label><p class="spec" v-html="selected ? selected.special : null"></p>
+                  <div class="spec">
+                    <p class="label">
+                      特記事項：
+                    </p>
+                    <p class="in-spec" v-html="selected ? selected.special : null"></p>
+                  </div>
                 </div>
               </div>
               <div class="tile is-child box">
@@ -235,6 +242,15 @@ export default {
 
 .spec{
   text-align:left;
+}
+
+.label{
+  text-align:left;
+  display:inline;
+}
+
+.in-spec{
+  display:inline;
 }
 
 .device-img{
