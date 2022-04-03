@@ -70,6 +70,11 @@
                     付属品：
                     {{ selected ? selected.accessory[0] : null }}
                   </p>
+                  <p class="spec">
+                    発売日：
+                    {{ selected ? selected.sold_date : null }}
+                  </p>
+                  <label class="spec">特記事項：</label><p class="spec" v-html="selected ? selected.special : null"></p>
                 </div>
               </div>
               <div class="tile is-child box">
