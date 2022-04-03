@@ -1,10 +1,24 @@
 <template>
   <section>
     <b-tabs>
+      <b-tab-item>
+        <p>
+          「端末一覧」から、吉祥寺店で販売している中古端末を検索できます。
+        </p>
+      </b-tab-item>
+      <b-tab-item label="端末一覧">
+        <b-table
+          :data="contents"
+          :columns="columns"
+          :selected.sync="selected"
+          focusable
+        />
+      </b-tab-item>
+
       <b-tab-item label="選択した機種の詳細">
         <div class="selected-tab">
           <p class="selected-title">
-            {{ selected ? selected.model_name : null }} ({{ selected ? selected.model_number : null }})
+            {{ selected ? selected.model_maker[0] : null }} {{ selected ? selected.model_name : null }} ({{ selected ? selected.model_number : null }})
           </p>
           <div class="badges">
             <div class="rank">
@@ -15,6 +29,9 @@
             </div>
             <div class="os">
               <p>{{ selected ? selected.OS[0] : null }}</p>
+            </div>
+            <div class="career">
+              <p>{{ selected ? selected.career[0] : null }}</p>
             </div>
           </div>
           <div class="tile is-ancestor">
@@ -69,11 +86,21 @@
                 <div class="img-area">
                   <div class="front">
                     <img :src="selected ? selected.front_img.url : null" alt="front_img" class="device-img">
-                    <p class="is-size-5 has-text-weight-semibold">前面</p>
+                    <p class="is-size-5 has-text-weight-semibold">
+                      前面
+                    </p>
                   </div>
                   <div class="back">
                     <img :src="selected ? selected.back_img.url : null" alt="back_img" class="device-img">
-                    <p class="is-size-5 has-text-weight-semibold">背面</p>
+                    <p class="is-size-5 has-text-weight-semibold">
+                      背面
+                    </p>
+                  </div>
+                  <div class="acce">
+                    <img :src="selected ? selected.acce_img.url : null" alt="acce_img" class="device-img">
+                    <p class="is-size-5 has-text-weight-semibold">
+                      付属品
+                    </p>
                   </div>
                   <!-- <b-carousel>
                     <b-carousel-item v-for="(carousel, i) in selected ? selected.front_img : null" :key="i">
@@ -89,15 +116,6 @@
             </div>
           </div>
         </div>
-      </b-tab-item>
-
-      <b-tab-item label="端末一覧">
-        <b-table
-          :data="contents"
-          :columns="columns"
-          :selected.sync="selected"
-          focusable
-        />
       </b-tab-item>
     </b-tabs>
   </section>
@@ -176,6 +194,14 @@ export default {
   font-size:20px;
 }
 
+.career{
+  border:solid;
+  border-radius:10px;
+  width:200px;
+  display:inline-block;
+  font-size:20px;
+}
+
 .rank{
   border:solid;
   border-radius:10px;
@@ -217,6 +243,12 @@ export default {
 }
 
 .back{
+  display:inline-block;
+  text-align:center;
+  margin:10px 20px;
+}
+
+.acce{
   display:inline-block;
   text-align:center;
   margin:10px 20px;
