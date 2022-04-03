@@ -67,7 +67,9 @@
                     {{ selected ? selected.imei : null }}
                   </p>
                   <div class="spec">
-                    <label class="label">付属品：</label>
+                    <p class="label">
+                      付属品：
+                    </p>
                     <p v-for="acce in selected ? selected.accessory : null" :key="acce.id" class="in-spec">
                       ・{{ acce }}
                     </p>
@@ -80,7 +82,7 @@
                     <p class="label">
                       特記事項：
                     </p>
-                    <p class="in-spec" v-html="selected ? selected.special : null"></p>
+                    <p class="in-spec" v-html="selected ? selected.special : null" />
                   </div>
                 </div>
               </div>
